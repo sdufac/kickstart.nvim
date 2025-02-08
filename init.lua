@@ -226,7 +226,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
 
   { 'windwp/nvim-autopairs', event = 'InsertEnter', config = true },
-  { 'owickstrom/vim-colors-paramount' },
   -- use opts = {} for passing setup options
   -- this is equalent to setup({}) function
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
@@ -782,17 +781,16 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'ellisonleao/gruvbox.nvim',
-    'owickstrom/vim-colors-paramount',
+    'ntk148v/komau.vim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'paramount'
+      vim.cmd.colorscheme 'komau'
       vim.o.background = 'dark'
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      --vim.cmd.hi 'Comment gui=none'
     end,
   },
 
