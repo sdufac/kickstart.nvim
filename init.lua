@@ -1,3 +1,7 @@
+-- Sommaire
+-- l126 : Plugins
+-- l340 : LSP
+
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -10,7 +14,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -121,6 +125,20 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+
+  {"nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+    require("nvim-tree").setup {}
+    
+    vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'Toggle file [e]xplorer (NvimTree)' })
+    vim.keymap.set('n', '<C-n>', ':NvimTreeFocus<CR>', { desc = 'Focus NvimTree' })
+    end,
+  },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -328,7 +346,6 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         bashls = {},
-        tsserver = {},
         cssls = {},
         html = {},
         eslint = {},
@@ -344,6 +361,8 @@ require('lazy').setup({
             },
           },
         },
+        basedpyright = {}
+
       }
 
       -- Ensure the servers and tools above are installed
