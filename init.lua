@@ -513,6 +513,7 @@ require('lazy').setup({
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'kdheepak/cmp-latex-symbols',
     },
     config = function()
       -- See `:help cmp`
@@ -584,6 +585,7 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'latex_symbols' }
         },
       }
     end,
@@ -595,6 +597,7 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'rebelot/kanagawa.nvim',
+    -- 'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
